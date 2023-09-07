@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* Увеличиваем шрифт */
+        body {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<label>
+    <h1>     Приложение<br>
+        для работы с базой данных:<br>
+        ПОЛЬЗОВАТЕЛИ!<br> </h1>
+        <h1 style = "font-size: 36px; color : darkblue">Функционал приложения:</h1>
+        <h1 style = "font-size: 24px; color : blue">⬤ просмотр списка пользователей</h1>
+        <h1 style = "font-size: 24px; color : blue">⬤ редактирование пользователя</h1>
+        <h1 style = "font-size: 24px; color : blue">⬤ удаление пользователя из списка</h1>
+        <h1 style = "font-size: 24px; color : blue">⬤ добавление нового пользователя</h1>
+<!--             Имеет функционал:<br>-->
+
+</label>
+<body>
+<div>
+    <th:block th:each="msg : ${messages}">
+        <h1 th:text="${msg}"></h1>
+    </th:block>
+</div>
+<tr> </tr>
+<a href="/users">
+     <button style="font-size: 18px; padding: 10px 20px; color : darkblue">жми сюда <br> СПИСОК ПОЛЬЗОВАТЕЛЕЙ</button>
+</a>
+</body>
+</html>
