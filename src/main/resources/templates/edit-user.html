@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit User</title>
+  <style>
+    body {
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    label {
+      font-size: 24px;
+    }
+
+    input {
+      font-size: 16px;
+      padding: 5px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+    }
+
+    a {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+<h1 style = "font-size: 30px; color : red">РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЯ</h1>
+<form th:action="@{/users/edit/{id}(id=${user.id})}" th:object="${user}" method="post">
+  <h1>
+    <label>Имя: <input type="text" th:field="*{name}" /></label><br><br>
+    <label>Фамилия: <input type="text" th:field="*{lastName}" /></label><br><br>
+    <label>Полных лет: <input type="number" th:field="*{age}" /></label><br><br>
+  </h1>
+  <button style="font-size: 18px; padding: 10px 20px; color : darkgreen" type="submit">СОХРАНИТЬ ИЗМЕНЕНИЯ</button><br>
+
+</form>
+<a href="/users">
+  <br>
+  <button style="font-size: 18px; padding: 10px 20px; color : darkblue" type="submit">ВЕРНУТЬСЯ К СПИСКУ</button>
+</a>
+</body>
+</html>

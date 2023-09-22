@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <style>
+        /* Увеличиваем шрифт */
+        body {
+            font-size: 18px;
+        }
+
+        table {
+            font-size: 18px;
+        }
+
+        th {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        td {
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Список пользователей</h1>
+<a href="/users/add">
+    <button style="font-size: 18px; padding: 12px 6px;  color: blue;">Добавить пользователя</button>
+</a>
+<table>
+    <tr>
+        <th style = "color:blue">ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Полных лет</th>
+        <th style="font-size: 22px; color: dimgray">Действие</th>
+    </tr>
+
+    <tr th:each="user : ${users}">
+        <th style = "color:blue; font-size: 18px" th:text="${user.id}"></th>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+
+
+            <!-- Кнопка Edit -->
+            <a th:href="@{/users/edit/{id}(id=${user.id})}">
+                <button style="font-size: 18px; padding: 10px 20px; color: darkblue">Редактировать</button>
+            </a>
+            <!-- Кнопка Delete -->
+            <a th:href="@{/users/delete/{id}(id=${user.id})}">
+                <button style="font-size: 18px; padding: 10px 20px; color: red">Удалить</button>
+            </a>
+
+
+            <!--            <a th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a>-->
+<!--            <a th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>-->
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+<!--    <title>Users</title>-->
+
+<!--    <style>-->
+<!--        /* Стили для центрирования */-->
+<!--        .center-content {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh; /* Занимает 100% высоты окна браузера */-->
+<!--        }-->
+<!--    </style>-->
+
+<!--</head>-->
+<!--<label>-->
+<!--    <h1> Список пользователей </h1>-->
+<!--</label>-->
+<!--<body>-->
+<!--<div>-->
+<!--&lt;!&ndash;<div class="center-content">&ndash;&gt;-->
+
+<!--    <th:block th:each="user, iteration : ${messages}">-->
+<!--        <p>-->
+<!--            <h1>-->
+<!--            <span th:text="'Номер в табице = '"></span>-->
+<!--            <span style = "color:green" th:text="${user.id}"></span><br>-->
+
+<!--            <span th:text="'Имя = '"></span>-->
+<!--            <span style = "color:green" th:text="${user.name} + '; '"></span>-->
+
+<!--            <span th:text="'Фамиля = '"></span>-->
+<!--             <span style = "color:green" th:text="${user.lastName} + '; '"></span>-->
+
+<!--            <span th:text="'Сколько лет = '"></span>-->
+<!--             <span style = "color:green" th:text="${user.age} + '; '"></span>-->
+
+<!--&lt;!&ndash;            <h1>&ndash;&gt;-->
+<!--&lt;!&ndash;            <span th:text="'Номер в табице = '"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <span style = "color:green" th:text="${user.id}"></span><br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <span th:text="'Имя = '"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;            <span style = "color:green" th:text="${user.name}"></span><br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <span th:text="'Фамиля = '"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;             <span style = "color:green" th:text="${user.lastName}"></span><br>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <span th:text="'Сколько лет = '"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;             <span style = "color:green" th:text="${user.age}"></span><br>&ndash;&gt;-->
+
+<!--    </h1>-->
+<!--        </p>-->
+<!--    </th:block>-->
+
+<!--&lt;!&ndash;    <th:block th:each="msg : ${messages}">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1 th:text="${msg}"></h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    </th:block>&ndash;&gt;-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
